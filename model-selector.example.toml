@@ -1,0 +1,89 @@
+# Model Selector Configuration
+# Copy to ~/.config/model-selector/config.toml or ./model-selector.toml
+
+# Configurable aliases for common query patterns
+[aliases]
+fast = "speed >= 7"
+cheap = "cost <= 3"
+smart = "instruction_following >= 8"
+big_context = "context_window >= 100000"
+
+# OpenAI GPT-4 Turbo
+[models.gpt4]
+provider = "openai"
+model_id = "gpt-4-turbo"
+api_key = "$OPENAI_API_KEY"
+enabled = true
+
+[models.gpt4.attributes]
+context_window = 128000
+cost = 8
+speed = 6
+instruction_following = 9
+functions = true
+reasoning = true
+local = false
+
+# OpenAI GPT-4o Mini (fast and cheap)
+[models.gpt4mini]
+provider = "openai"
+model_id = "gpt-4o-mini"
+api_key = "$OPENAI_API_KEY"
+enabled = true
+
+[models.gpt4mini.attributes]
+context_window = 128000
+cost = 2
+speed = 9
+instruction_following = 7
+functions = true
+reasoning = false
+local = false
+
+# Anthropic Claude 3.5 Sonnet
+[models.claude]
+provider = "anthropic"
+model_id = "claude-3-5-sonnet-20241022"
+api_key = "$ANTHROPIC_API_KEY"
+enabled = true
+
+[models.claude.attributes]
+context_window = 200000
+cost = 6
+speed = 7
+instruction_following = 9
+functions = true
+reasoning = true
+local = false
+
+# Local Ollama - Llama 3
+[models.llama3]
+provider = "ollama"
+model_id = "llama3:8b"
+base_url = "http://localhost:11434"
+enabled = true
+
+[models.llama3.attributes]
+context_window = 8192
+cost = 0
+speed = 8
+instruction_following = 6
+functions = false
+reasoning = false
+local = true
+
+# Local Ollama - Llama 3 70B (bigger, slower, smarter)
+[models.llama3_70b]
+provider = "ollama"
+model_id = "llama3:70b"
+base_url = "http://localhost:11434"
+enabled = false  # Disabled by default - requires significant resources
+
+[models.llama3_70b.attributes]
+context_window = 8192
+cost = 0
+speed = 3
+instruction_following = 8
+functions = false
+reasoning = true
+local = true
