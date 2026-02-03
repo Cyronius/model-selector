@@ -1,4 +1,4 @@
-import type { LanguageModel } from 'ai';
+import type { LanguageModel, EmbeddingModel } from 'ai';
 import { ModelConfig } from '../types.js';
 import { getProviderInfo, getSupportedProviders } from './registry.js';
 
@@ -9,7 +9,15 @@ import { getProviderInfo, getSupportedProviders } from './registry.js';
 type ProviderFactory = (config: {
   apiKey?: string;
   baseURL?: string;
-}) => (modelId: string) => LanguageModel;
+}) => ProviderInstance;
+
+/**
+ * Provider instance with methods for different model types.
+ */
+type ProviderInstance = {
+  (modelId: string): LanguageModel;
+  embedding?: (modelId: string) => EmbeddingModel<string>;
+};
 
 /**
  * Cache for loaded provider factories.
@@ -79,4 +87,33 @@ export async function createLanguageModel(config: ModelConfig): Promise<Language
 
   const provider = factory(providerConfig);
   return provider(config.model_id);
+}
+
+/**
+ * Create an EmbeddingModel from a model configuration.
+ *
+ * Dynamically loads the appropriate provider and creates the embedding model instance.
+ * Note: Not all providers support embeddings.
+ */
+export async function createEmbeddingModel(config: ModelConfig): Promise<EmbeddingModel<string>> {
+  const factory = await getProviderFactory(config.provider);
+
+  const providerConfig: { apiKey?: string; baseURL?: string } = {};
+
+  if (config.api_key) {
+    providerConfig.apiKey = config.api_key;
+  }
+  if (config.base_url) {
+    providerConfig.baseURL = config.base_url;
+  }
+
+  const provider = factory(providerConfig);
+
+  if (!provider.embedding) {
+    throw new Error(
+      `Provider "${config.provider}" does not support embeddings`
+    );
+  }
+
+  return provider.embedding(config.model_id);
 }

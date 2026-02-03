@@ -22,6 +22,60 @@ export { parseQuery } from './query/parser.js';
 export { matchModel } from './query/matcher.js';
 export { getSupportedProviders, isProviderSupported } from './providers/registry.js';
 
+// Config writer exports
+export {
+  writeConfig,
+  updateConfig,
+  addModel,
+  updateModel,
+  removeModel,
+  setModelEnabled,
+  setAlias,
+  removeAlias,
+  getDefaultConfigPath,
+  ensureConfigDirectory,
+  validateModelConfig,
+  validateConfig,
+} from './config/writer.js';
+
+export type { ConfigWriterOptions, WriteResult } from './config/writer.js';
+export { ConfigError, ConfigErrorCode } from './config/errors.js';
+
+// Wrapper API - high-level Vercel AI SDK wrapper with automatic fallbacks
+export {
+  generate,
+  stream,
+  generateObject,
+  streamObject,
+  embed,
+  embedMany,
+  AllModelsFailedError,
+  TimeoutError,
+  classifyError,
+} from './wrapper/index.js';
+
+export type {
+  AttemptInfo,
+  WrapperHooks,
+  BaseWrapperOptions,
+  TokenUsage,
+  GenerateOptions,
+  GenerateResult,
+  StreamOptions,
+  StreamChunk,
+  StreamResult,
+  GenerateObjectOptions,
+  ObjectResult,
+  StreamObjectOptions,
+  ObjectStreamResult,
+  EmbedOptions,
+  EmbedResult,
+  EmbedManyOptions,
+  EmbedManyResult,
+  ErrorCategory,
+  ClassifiedError,
+} from './wrapper/index.js';
+
 /**
  * Internal: rank models by query match.
  */

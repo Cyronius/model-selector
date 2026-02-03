@@ -53,11 +53,11 @@ Models defined in TOML (see `model-selector.example.toml`):
 [aliases]
 fast = "speed >= 7"
 
-[models.gpt4]
+[models.gpt5]
 provider = "openai"
-model_id = "gpt-4-turbo"
+model_id = "gpt-5.2"
 api_key = "$OPENAI_API_KEY"
-[models.gpt4.attributes]
+[models.gpt5.attributes]
 speed = 6
 cost = 8
 ```

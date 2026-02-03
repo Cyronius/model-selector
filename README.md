@@ -67,14 +67,14 @@ fast = "speed >= 7"
 cheap = "cost <= 3"
 smart = "instruction_following >= 8"
 
-# OpenAI GPT-4 Turbo
-[models.gpt4]
+# OpenAI GPT-5.2
+[models.gpt5]
 provider = "openai"
-model_id = "gpt-4-turbo"
+model_id = "gpt-5.2"
 api_key = "$OPENAI_API_KEY"  # Environment variable reference
 enabled = true
 
-[models.gpt4.attributes]
+[models.gpt5.attributes]
 context_window = 128000
 cost = 8
 speed = 6
@@ -241,7 +241,7 @@ const result = matchModel(modelAttributes, parsed);
 
 | Provider | Package | Models |
 |----------|---------|--------|
-| `openai` | `@ai-sdk/openai` | GPT-4, GPT-4o, GPT-3.5, etc. |
+| `openai` | `@ai-sdk/openai` | GPT-5.2, etc. |
 | `anthropic` | `@ai-sdk/anthropic` | Claude 3.5, Claude 3, etc. |
 | `google` | `@ai-sdk/google` | Gemini Pro, Gemini Flash, etc. |
 | `mistral` | `@ai-sdk/mistral` | Mistral Large, Medium, etc. |
@@ -295,6 +295,42 @@ async function generateWithFallback(prompt: string) {
   throw new Error('All models failed');
 }
 ```
+
+## Configuration Utility
+
+A browser-based configuration editor is included for managing your models and aliases.
+
+```bash
+# Clone the repo and install dependencies
+npm install
+
+# Launch the config editor
+npm run config
+```
+
+This opens a web UI at `http://localhost:5173` for editing your user config at `~/.config/model-selector/config.toml`.
+
+## React Components
+
+For building custom configuration UIs in your own React app, model-selector exports a set of React components and hooks.
+
+```bash
+npm install model-selector react
+```
+
+```tsx
+import { ConfigProvider, ModelList, ModelForm } from 'model-selector/react';
+
+function MyConfigUI() {
+  return (
+    <ConfigProvider configPath="./model-selector.toml">
+      <ModelList onSelectModel={(name) => console.log(name)} />
+    </ConfigProvider>
+  );
+}
+```
+
+See [src/react/README.md](src/react/README.md) for full documentation on available components and hooks.
 
 ## License
 
