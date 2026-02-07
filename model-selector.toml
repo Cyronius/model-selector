@@ -1,19 +1,14 @@
-# Model Selector Configuration
-# Copy to ~/.config/model-selector/config.toml or ./model-selector.toml
-
-# Configurable aliases for common query patterns
 [aliases]
 fast = "speed >= 7"
 cheap = "cost <= 3"
 smart = "instruction_following >= 8"
 big_context = "context_window >= 100000"
 
-# OpenAI GPT-5.2
 [models.gpt5]
 provider = "openai"
 model_id = "gpt-5.2"
 api_key = "$OPENAI_API_KEY"
-enabled = true
+enabled = false
 
 [models.gpt5.attributes]
 context_window = 128000
@@ -24,12 +19,11 @@ functions = true
 reasoning = true
 local = false
 
-# Anthropic Claude 3.5 Sonnet
 [models.claude]
 provider = "anthropic"
 model_id = "claude-3-5-sonnet-20241022"
 api_key = "$ANTHROPIC_API_KEY"
-enabled = true
+enabled = false
 
 [models.claude.attributes]
 context_window = 200000
@@ -40,12 +34,11 @@ functions = true
 reasoning = true
 local = false
 
-# Local Ollama - Llama 3
 [models.llama3]
 provider = "ollama"
 model_id = "llama3:8b"
 base_url = "http://localhost:11434"
-enabled = true
+enabled = false
 
 [models.llama3.attributes]
 context_window = 8192
@@ -56,12 +49,11 @@ functions = false
 reasoning = false
 local = true
 
-# Local Ollama - Llama 3 70B (bigger, slower, smarter)
 [models.llama3_70b]
 provider = "ollama"
 model_id = "llama3:70b"
 base_url = "http://localhost:11434"
-enabled = false  # Disabled by default - requires significant resources
+enabled = false
 
 [models.llama3_70b.attributes]
 context_window = 8192
@@ -70,4 +62,14 @@ speed = 3
 instruction_following = 8
 functions = false
 reasoning = true
+local = true
+
+[models."LFM2.5-1.2B-Instruct"]
+provider = "ollama"
+model_id = "hf.co/LiquidAI/LFM2.5-1.2B-Instruct-GGUF:latest"
+enabled = true
+
+[models."LFM2.5-1.2B-Instruct".attributes]
+speed = 8
+context_window = 32000
 local = true

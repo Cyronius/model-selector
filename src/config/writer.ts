@@ -4,6 +4,7 @@ import * as os from 'node:os';
 import { stringify as stringifyToml } from 'smol-toml';
 import { Config, ConfigSchema, ModelConfig, ModelConfigSchema } from '../types.js';
 import { ConfigError, ConfigErrorCode } from './errors.js';
+import { findExistingConfigPath } from './loader.js';
 
 export interface ConfigWriterOptions {
   /** Path to write config. Defaults to ~/.config/model-selector/config.toml */
@@ -29,7 +30,11 @@ export function getDefaultConfigPath(): string {
  * Get the config path from options or default.
  */
 function getConfigPath(options?: ConfigWriterOptions): string {
-  return options?.configPath ?? getDefaultConfigPath();
+  if (options?.configPath) {
+    return options.configPath;
+  }
+  // Find existing config using same logic as loader, or fall back to default
+  return findExistingConfigPath() ?? getDefaultConfigPath();
 }
 
 /**

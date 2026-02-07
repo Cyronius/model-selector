@@ -4,13 +4,38 @@ import * as os from 'node:os';
 import { parse as parseToml } from 'smol-toml';
 import { Config, ConfigSchema, ModelConfig } from '../types.js';
 
-// Default config file locations (searched in order)
-const CONFIG_LOCATIONS = [
-  // User-level defaults
-  path.join(os.homedir(), '.config', 'model-selector', 'config.toml'),
-  // Project-specific overrides
-  path.join(process.cwd(), 'model-selector.toml'),
-];
+/**
+ * Get default config file locations (searched in order).
+ * This is a function rather than a constant to defer os.homedir() evaluation,
+ * allowing browser code to import this module without crashing.
+ */
+function getConfigLocations(): string[] {
+  return [
+    // User-level defaults
+    path.join(os.homedir(), '.config', 'model-selector', 'config.toml'),
+    // Project-specific overrides
+    path.join(process.cwd(), 'model-selector.toml'),
+  ];
+}
+
+/**
+ * Find the first existing config file path.
+ * Returns null if no config file exists.
+ */
+export function findExistingConfigPath(customPath?: string): string | null {
+  const searchPaths = getConfigLocations();
+
+  const envPath = process.env['MODEL_SELECTOR_CONFIG'];
+  if (envPath) searchPaths.push(envPath);
+  if (customPath) searchPaths.push(customPath);
+
+  for (const configPath of searchPaths) {
+    if (fs.existsSync(configPath)) {
+      return configPath;
+    }
+  }
+  return null;
+}
 
 /**
  * Resolve environment variable references in a string.
@@ -85,7 +110,7 @@ function mergeConfigs(configs: Config[]): Config {
  */
 export function loadConfig(customPath?: string): Config {
   const configs: Config[] = [];
-  const searchPaths = [...CONFIG_LOCATIONS];
+  const searchPaths = getConfigLocations();
 
   // Add custom path from env var or parameter
   const envPath = process.env['MODEL_SELECTOR_CONFIG'];

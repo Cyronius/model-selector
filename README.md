@@ -310,21 +310,29 @@ npm run config
 
 This opens a web UI at `http://localhost:5173` for editing your user config at `~/.config/model-selector/config.toml`.
 
-## React Components
+## React Configuration UI Components
 
-For building custom configuration UIs in your own React app, model-selector exports a set of React components and hooks.
+These components help you build **admin UIs for managing model-selector configuration** - they are not for runtime model selection.
+
+**Workflow:**
+1. Use these components (or edit TOML manually) to configure available models, their attributes, and aliases
+2. At runtime, your app calls `selectModel("fast, cheap")` which automatically picks the best model from that config
 
 ```bash
 npm install model-selector react
 ```
 
 ```tsx
+import { useState } from 'react';
 import { ConfigProvider, ModelList, ModelForm } from 'model-selector/react';
 
 function MyConfigUI() {
+  const [editing, setEditing] = useState<string | null>(null);
+
   return (
     <ConfigProvider configPath="./model-selector.toml">
-      <ModelList onSelectModel={(name) => console.log(name)} />
+      <ModelList onSelectModel={(name) => setEditing(name)} />
+      {editing && <ModelForm name={editing} onCancel={() => setEditing(null)} />}
     </ConfigProvider>
   );
 }
