@@ -1,345 +1,97 @@
 # model-selector
 
-Runtime LLM model selection using query-based matching with Vercel AI SDK.
+Query-based runtime LLM model selection.
 
-Instead of hardcoding which model to use, write simple queries like `"fast, cheap"` and let model-selector automatically choose the best matching model from your configuration.
+Instead of hardcoding which model to use, the host supplies the list of models it
+has access to plus a query like `"fast, cheap, functions"`, and model-selector
+returns the **selected model id(s) + match metadata**. It does *only the match* —
+it never instantiates an LLM client. The host owns its models and its clients.
 
-## Features
-
-- **Query-based selection** - Express requirements naturally: `"fast, cheap, functions"`
-- **8+ provider support** - OpenAI, Anthropic, Google, Mistral, Groq, Cohere, Azure, Ollama
-- **TOML configuration** - Define models and attributes in config files
-- **Automatic ranking** - Models scored and sorted by match quality
-- **Graceful fallbacks** - Returns best partial match when no exact match exists
-- **Optional dependencies** - Install only the provider packages you need
-
-## Installation
-
-```bash
-npm install model-selector ai
+```
+query string ──▶ parse ──▶ match (weighted attributes) ──▶ rank ──▶ model id(s) + metadata
 ```
 
-Then install provider packages for the models you want to use:
+## Monorepo layout
 
-```bash
-# Pick the ones you need
-npm install @ai-sdk/openai      # OpenAI
-npm install @ai-sdk/anthropic   # Anthropic
-npm install @ai-sdk/google      # Google
-npm install @ai-sdk/mistral     # Mistral
-npm install @ai-sdk/groq        # Groq
-npm install @ai-sdk/cohere      # Cohere
-npm install @ai-sdk/azure       # Azure OpenAI
-npm install ollama-ai-provider  # Ollama (local)
+```
+packages/
+  model-selector-py/    PRIMARY — Python package (where this is actually needed)
+  model-selector-ts/    reworked TypeScript — match-only (UX/server/wrapper/providers removed)
+shared/
+  corpus/               golden cases: query -> ParsedQuery -> MatchResult (JSON)
+  schema/               store TOML schema + example config
+  spec/                 the contract both implementations satisfy (spec.md)
 ```
 
-## Quick Start
+Both packages load `shared/corpus/*.json` in their test suites and assert
+identical parse + match results, so the two matchers cannot silently drift. The
+corpus is regenerated from the Python implementation via
+`shared/corpus/generate.py`.
+
+## The contract
+
+1. **Match-only.** No UX, no server, no client creation. The host hands us models
+   + a query; we return ids + match metadata.
+2. **Metadata is (mostly) automatic.** HuggingFace is the source of truth for
+   *factual* open-weight metadata (params, context window, license, tags,
+   popularity). It exposes nothing for cost / speed / quality, and proprietary
+   models (Claude, GPT) aren't on the Hub. So the Python package derives crude
+   normalized 1-10 attributes from HF facts and lets the host override anything —
+   with precedence **user > huggingface > derived** and full provenance tracking.
+
+## Python (primary)
+
+```python
+from model_selector import select_model, ModelRegistry
+
+registry = ModelRegistry.from_models(
+    [
+        {"id": "gpt5",  "attributes": {"cost": 8, "speed": 6, "functions": True}},
+        {"id": "haiku", "attributes": {"cost": 2, "speed": 9, "functions": True}},
+    ],
+    aliases={"cheap": "cost <= 3", "fast": "speed >= 7"},
+)
+res = select_model("cheap, fast, functions", registry)
+client = host_make_client(res.model_id)  # client creation stays the host's job
+```
+
+See [packages/model-selector-py/README.md](packages/model-selector-py/README.md).
+
+## TypeScript
 
 ```typescript
 import { selectModel } from 'model-selector';
-import { generateText } from 'ai';
 
-// Select the best matching model
-const model = await selectModel("fast, cheap");
-
-// Use with Vercel AI SDK
-const { text } = await generateText({
-  model,
-  prompt: 'Explain quantum computing in one sentence.',
-});
-```
-
-## Configuration
-
-Create a config file at one of these locations (later files override earlier):
-
-1. `~/.config/model-selector/config.toml` - User defaults
-2. `./model-selector.toml` - Project-specific config
-3. `$MODEL_SELECTOR_CONFIG` environment variable path
-4. Custom path via `configPath` option
-
-### Example Configuration
-
-```toml
-# Aliases for common query patterns
-[aliases]
-fast = "speed >= 7"
-cheap = "cost <= 3"
-smart = "instruction_following >= 8"
-
-# OpenAI GPT-5.2
-[models.gpt5]
-provider = "openai"
-model_id = "gpt-5.2"
-api_key = "$OPENAI_API_KEY"  # Environment variable reference
-enabled = true
-
-[models.gpt5.attributes]
-context_window = 128000
-cost = 8
-speed = 6
-instruction_following = 9
-functions = true
-reasoning = true
-local = false
-
-# Anthropic Claude 3.5 Sonnet
-[models.claude]
-provider = "anthropic"
-model_id = "claude-3-5-sonnet-20241022"
-api_key = "$ANTHROPIC_API_KEY"
-enabled = true
-
-[models.claude.attributes]
-context_window = 200000
-cost = 6
-speed = 7
-instruction_following = 9
-functions = true
-reasoning = true
-local = false
-
-# Local Ollama
-[models.llama3]
-provider = "ollama"
-model_id = "llama3:8b"
-base_url = "http://localhost:11434"
-enabled = true
-
-[models.llama3.attributes]
-context_window = 8192
-cost = 0
-speed = 8
-instruction_following = 6
-functions = false
-reasoning = false
-local = true
-```
-
-### Environment Variables
-
-Use `$VAR` or `${VAR}` syntax in config values to reference environment variables:
-
-```toml
-api_key = "$OPENAI_API_KEY"
-base_url = "${CUSTOM_BASE_URL}"
-```
-
-## Query Syntax
-
-Queries are comma-separated conditions combined with AND logic.
-
-| Type | Example | Description |
-|------|---------|-------------|
-| Boolean | `local` | Attribute must be `true` |
-| Negated | `!local` | Attribute must be `false` |
-| Comparison | `cost <= 5` | Supports `>`, `>=`, `<`, `<=`, `=`, `!=` |
-| Equality | `provider = openai` | String comparison |
-| Alias | `fast, cheap` | Expands to defined expression |
-| Weighted | `local:10, fast:5` | Custom priority weights |
-
-### Position-Based Weighting
-
-By default, earlier conditions get higher weights. The query `"fast, cheap, functions"` prioritizes speed over cost, and cost over function support.
-
-Override with explicit weights when needed:
-
-```typescript
-// Cost is most important, then speed
-const model = await selectModel("cheap:10, fast:5");
-```
-
-## API Reference
-
-### selectModel(query, options?)
-
-Select the single best matching model.
-
-```typescript
-// Simple usage
-const model = await selectModel("fast, cheap");
-
-// With detailed result
-const result = await selectModel("local, functions", { detailed: true });
-console.log(result.score);              // 0.85
-console.log(result.exactMatch);         // false
-console.log(result.matchedAttributes);  // ['local']
-console.log(result.missingAttributes);  // ['functions']
-```
-
-### selectModels(query, options?)
-
-Select multiple models ranked by match score. Useful for fallback scenarios.
-
-```typescript
-const models = await selectModels("local, reasoning", { count: 3 });
-
-for (const model of models) {
-  try {
-    const { text } = await generateText({ model, prompt: 'Hello!' });
-    return text; // Success
-  } catch (e) {
-    continue; // Try next model
-  }
+const sel = selectModel('fast, cheap, functions');   // reads a TOML config
+if (sel) {
+  const client = hostMakeClient(sel.modelId);        // host's job
 }
 ```
 
-### selectModelsDetailed(query, options?)
+See [packages/model-selector-ts/src/index.ts](packages/model-selector-ts/src/index.ts).
 
-Like `selectModels` but returns detailed results with metadata.
+## Query DSL
 
-```typescript
-const results = await selectModelsDetailed("fast", { count: 3 });
+Comma-separated conditions (AND), first has highest weight unless overridden:
 
-for (const { model, modelName, score, exactMatch } of results) {
-  console.log(`${modelName}: score=${score}, exact=${exactMatch}`);
-}
-```
+| Form | Example |
+|------|---------|
+| boolean | `local`, `functions` |
+| negated | `!local` |
+| comparison | `cost <= 5`, `speed >= 7` |
+| equality | `provider = openai`, `provider != google` |
+| custom weight | `fast:10, cheap:5` |
+| alias | `cheap` → `cost <= 3` |
 
-### Options
-
-```typescript
-interface SelectOptions {
-  detailed?: boolean;   // Include match metadata in result
-  count?: number;       // Number of models to return (for selectModels)
-  configPath?: string;  // Custom config file path
-}
-```
-
-### SelectionResult
-
-When using `detailed: true`:
-
-```typescript
-interface SelectionResult<T> {
-  model: T;                      // The LanguageModel instance
-  config: ModelConfig;           // Model configuration
-  modelName: string;             // Model identifier from config
-  score: number;                 // Normalized score (0-1)
-  exactMatch: boolean;           // All conditions satisfied?
-  matchedAttributes: string[];   // Attributes that matched
-  missingAttributes: string[];   // Attributes that didn't match
-}
-```
-
-### Utility Functions
-
-```typescript
-import { loadConfig, parseQuery, matchModel } from 'model-selector';
-
-// Load configuration manually
-const config = loadConfig('./custom-config.toml');
-
-// Parse a query string
-const parsed = parseQuery("fast, cheap", config.aliases);
-
-// Match against model attributes
-const result = matchModel(modelAttributes, parsed);
-```
-
-## Supported Providers
-
-| Provider | Package | Models |
-|----------|---------|--------|
-| `openai` | `@ai-sdk/openai` | GPT-5.2, etc. |
-| `anthropic` | `@ai-sdk/anthropic` | Claude 3.5, Claude 3, etc. |
-| `google` | `@ai-sdk/google` | Gemini Pro, Gemini Flash, etc. |
-| `mistral` | `@ai-sdk/mistral` | Mistral Large, Medium, etc. |
-| `groq` | `@ai-sdk/groq` | Llama, Mixtral on Groq |
-| `cohere` | `@ai-sdk/cohere` | Command R, Command R+ |
-| `azure` | `@ai-sdk/azure` | Azure-hosted OpenAI models |
-| `ollama` | `ollama-ai-provider` | Any local Ollama model |
-
-## Examples
-
-### Custom Config Path
-
-```typescript
-const model = await selectModel("fast", {
-  configPath: './configs/production.toml'
-});
-```
-
-### Debugging Selection
-
-```typescript
-const result = await selectModel("local, functions, reasoning", {
-  detailed: true
-});
-
-if (!result.exactMatch) {
-  console.log('No exact match found');
-  console.log('Missing:', result.missingAttributes);
-  console.log('Score:', result.score);
-}
-```
-
-### Fallback Chain
-
-```typescript
-import { selectModels } from 'model-selector';
-import { generateText } from 'ai';
-
-async function generateWithFallback(prompt: string) {
-  const models = await selectModels("smart, functions", { count: 3 });
-
-  for (const model of models) {
-    try {
-      const { text } = await generateText({ model, prompt });
-      return text;
-    } catch (error) {
-      console.log('Model failed, trying next...');
-    }
-  }
-
-  throw new Error('All models failed');
-}
-```
-
-## Configuration Utility
-
-A browser-based configuration editor is included for managing your models and aliases.
+## Development
 
 ```bash
-# Clone the repo and install dependencies
-npm install
+# Python
+cd packages/model-selector-py && pip install -e .[dev] && pytest
 
-# Launch the config editor
-npm run config
+# TypeScript
+cd packages/model-selector-ts && npm install && npm run test:run
+
+# Regenerate the shared corpus after a behavior change
+python shared/corpus/generate.py
 ```
-
-This opens a web UI at `http://localhost:5173` for editing your user config at `~/.config/model-selector/config.toml`.
-
-## React Configuration UI Components
-
-These components help you build **admin UIs for managing model-selector configuration** - they are not for runtime model selection.
-
-**Workflow:**
-1. Use these components (or edit TOML manually) to configure available models, their attributes, and aliases
-2. At runtime, your app calls `selectModel("fast, cheap")` which automatically picks the best model from that config
-
-```bash
-npm install model-selector react
-```
-
-```tsx
-import { useState } from 'react';
-import { ConfigProvider, ModelList, ModelForm } from 'model-selector/react';
-
-function MyConfigUI() {
-  const [editing, setEditing] = useState<string | null>(null);
-
-  return (
-    <ConfigProvider configPath="./model-selector.toml">
-      <ModelList onSelectModel={(name) => setEditing(name)} />
-      {editing && <ModelForm name={editing} onCancel={() => setEditing(null)} />}
-    </ConfigProvider>
-  );
-}
-```
-
-See [src/react/README.md](src/react/README.md) for full documentation on available components and hooks.
-
-## License
-
-MIT

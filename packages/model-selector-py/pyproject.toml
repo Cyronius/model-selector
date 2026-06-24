@@ -1,0 +1,41 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "model-selector"
+version = "0.2.0"
+description = "Query-based runtime LLM model selection. The host owns its models and clients; this only does the match and returns selected model id(s) + metadata."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "model-selector contributors" }]
+keywords = ["llm", "model-selection", "ai", "huggingface"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+]
+# Pure core has zero required runtime dependencies.
+dependencies = []
+
+[project.optional-dependencies]
+# HuggingFace metadata sync (lazy-imported; only needed for sync_models with hf_repo_id).
+huggingface = ["huggingface_hub>=0.23"]
+# TOML write support (read uses stdlib tomllib).
+toml = ["tomli-w>=1.0"]
+dev = ["pytest>=8.0", "huggingface_hub>=0.23", "tomli-w>=1.0"]
+
+[project.urls]
+Homepage = "https://github.com/cyrusattoun/model-selector"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/model_selector"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "network: live HuggingFace calls; skipped by default (run with -m network)",
+]
+addopts = "-m 'not network'"

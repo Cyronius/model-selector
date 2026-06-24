@@ -1,0 +1,51 @@
+# model-selector store schema (match-only contract)
+#
+# Mirrors the legacy config layout: [aliases], [models.<id>], [models.<id>.attributes].
+# model-selector does NOT create clients, so client fields (model_id, api_key,
+# base_url) are no longer used by the matcher — keep them in your own host config.
+# Unknown keys here are ignored on load, so legacy files migrate near-unchanged.
+
+[aliases]
+fast = "speed >= 7"
+cheap = "cost <= 3"
+smart = "quality >= 8"
+big_context = "context_window >= 100000"
+
+# A proprietary model (not on the HuggingFace Hub) — attributes are host-supplied.
+[models.gpt5]
+provider = "openai"
+
+[models.gpt5.attributes]
+context_window = 128000
+cost = 8
+speed = 6
+quality = 9
+functions = true
+local = false
+
+[models.gpt5.provenance]
+cost = "user"
+speed = "user"
+quality = "user"
+
+# An open-weight model — hf_repo_id lets sync_models enrich it from the Hub.
+[models.llama]
+provider = "ollama"
+hf_repo_id = "meta-llama/Llama-3.1-8B-Instruct"
+
+[models.llama.attributes]
+# These can be left empty and filled in by sync_models(); shown here for clarity.
+context_window = 131072
+params_total = 8030000000
+cost = 3
+speed = 6.7
+quality = 5.0
+local = true
+
+[models.llama.provenance]
+context_window = "huggingface"
+params_total = "huggingface"
+cost = "derived"
+speed = "derived"
+quality = "derived"
+local = "huggingface"
