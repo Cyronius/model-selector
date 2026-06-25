@@ -25,6 +25,8 @@ dependencies = []
 huggingface = ["huggingface_hub>=0.23"]
 # TOML write support (read uses stdlib tomllib).
 toml = ["tomli-w>=1.0"]
+# Optional deps for examples/ (closing the loop with a real OpenAI call).
+examples = ["openai>=1.0"]
 dev = ["pytest>=8.0", "huggingface_hub>=0.23", "tomli-w>=1.0"]
 
 [project.urls]

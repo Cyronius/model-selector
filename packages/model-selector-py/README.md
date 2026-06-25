@@ -60,6 +60,17 @@ select_model_from(query, models, *, aliases=None) -> MatchResult | None  # state
 `MatchResult` carries `model_id`, `matches`, `score`, `max_score`,
 `normalized_score`, `exact_match`, `matched_attributes`, `missing_attributes`.
 
+## Example
+
+[`examples/openai_demo.py`](examples/openai_demo.py) runs the full loop — define
+3 OpenAI models, query, select, then (optionally) call OpenAI with the chosen id:
+
+```bash
+python examples/openai_demo.py              # selection only, zero deps
+pip install -e .[examples]                  # add openai to close the loop
+export OPENAI_API_KEY=sk-... && python examples/openai_demo.py
+```
+
 ## HuggingFace sync + derivation
 
 HF is treated as the source of truth for **factual** open-weight metadata (params,

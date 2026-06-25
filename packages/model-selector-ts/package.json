@@ -19,6 +19,7 @@
     "build": "tsc",
     "test": "vitest",
     "test:run": "vitest run",
+    "example": "tsx examples/openai-demo.ts",
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
     "release:patch": "npm version patch && npm publish",
@@ -31,6 +32,8 @@
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "openai": "^4.0.0",
+    "tsx": "^4.0.0",
     "typescript": "^5.7.0",
     "vitest": "^3.0.0"
   },
