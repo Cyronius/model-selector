@@ -1,0 +1,79 @@
+[
+  {
+    "id": "llama-3.1-8b",
+    "repo": "meta-llama/Llama-3.1-8B-Instruct",
+    "ok": true,
+    "gated": "manual",
+    "config_json_available": false
+  },
+  {
+    "id": "llama-3.1-70b",
+    "repo": "meta-llama/Llama-3.1-70B-Instruct",
+    "ok": true,
+    "gated": "manual",
+    "config_json_available": false
+  },
+  {
+    "id": "mistral-7b",
+    "repo": "mistralai/Mistral-7B-Instruct-v0.3",
+    "ok": true,
+    "gated": false,
+    "config_json_available": true
+  },
+  {
+    "id": "qwen2.5-7b",
+    "repo": "Qwen/Qwen2.5-7B-Instruct",
+    "ok": true,
+    "gated": false,
+    "config_json_available": true
+  },
+  {
+    "id": "qwen2.5-72b",
+    "repo": "Qwen/Qwen2.5-72B-Instruct",
+    "ok": true,
+    "gated": false,
+    "config_json_available": true
+  },
+  {
+    "id": "gemma-2-9b",
+    "repo": "google/gemma-2-9b-it",
+    "ok": true,
+    "gated": "manual",
+    "config_json_available": false
+  },
+  {
+    "id": "gemma-3-27b",
+    "repo": "google/gemma-3-27b-it",
+    "ok": true,
+    "gated": "manual",
+    "config_json_available": false
+  },
+  {
+    "id": "phi-3.5-mini",
+    "repo": "microsoft/Phi-3.5-mini-instruct",
+    "ok": true,
+    "gated": false,
+    "config_json_available": true
+  },
+  {
+    "id": "mixtral-8x7b",
+    "repo": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+    "ok": true,
+    "gated": false,
+    "config_json_available": true
+  },
+  {
+    "id": "deepseek-v3",
+    "repo": "deepseek-ai/DeepSeek-V3",
+    "ok": true,
+    "gated": false,
+    "config_json_available": true
+  },
+  {
+    "id": "kimi-k2",
+    "repo": "moonshotai/Kimi-K2-Instruct",
+    "ok": true,
+    "gated": false,
+    "config_json_available": true
+  }
+]

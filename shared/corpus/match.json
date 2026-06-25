@@ -24,6 +24,197 @@
       "functions": false,
       "local": true,
       "provider": "ollama"
+    },
+    "deepseek-v3": {
+      "architecture": "deepseek_v3",
+      "context_window": 163840,
+      "cost": 4.4,
+      "created_at": "2024-12-25T12:52:23+00:00",
+      "downloads": 1023877,
+      "gated": false,
+      "likes": 4092,
+      "local": true,
+      "params_active": 23971916241,
+      "params_total": 684531386000,
+      "pipeline_tag": "text-generation",
+      "quality": 10,
+      "speed": 5.6,
+      "tags": "transformers,safetensors,deepseek_v3,text-generation,conversational,custom_code,arxiv:2412.19437,eval-results,text-generation-inference,endpoints_compatible,fp8,region:us",
+      "provider": "deepseek"
+    },
+    "gemma-2-9b": {
+      "architecture": "gemma2",
+      "cost": 3.4,
+      "created_at": "2024-06-24T08:05:41+00:00",
+      "downloads": 357304,
+      "gated": true,
+      "license": "gemma",
+      "likes": 832,
+      "local": true,
+      "params_active": 9241705984,
+      "params_total": 9241705984,
+      "pipeline_tag": "text-generation",
+      "quality": 5.5,
+      "speed": 6.6,
+      "tags": "transformers,safetensors,gemma2,text-generation,conversational,arxiv:2009.03300,arxiv:1905.07830,arxiv:1911.11641,arxiv:1904.09728,arxiv:1905.10044,arxiv:1907.10641,arxiv:1811.00937,arxiv:1809.02789,arxiv:1911.01547,arxiv:1705.03551,arxiv:2107.03374,arxiv:2108.07732,arxiv:2110.14168,arxiv:2009.11462,arxiv:2101.11718,arxiv:2110.08193,arxiv:1804.09301,arxiv:2109.07958,arxiv:1804.06876,arxiv:2103.03874,arxiv:2304.06364,arxiv:2206.04615,arxiv:2203.09509,base_model:google/gemma-2-9b,base_model:finetune:google/gemma-2-9b,license:gemma,eval-results,text-generation-inference,endpoints_compatible,region:us",
+      "provider": "google"
+    },
+    "gemma-3-27b": {
+      "architecture": "gemma3",
+      "cost": 4.6,
+      "created_at": "2025-03-01T19:10:19+00:00",
+      "downloads": 1152764,
+      "gated": true,
+      "license": "gemma",
+      "likes": 1983,
+      "local": true,
+      "params_active": 27432406640,
+      "params_total": 27432406640,
+      "pipeline_tag": "image-text-to-text",
+      "quality": 7.1,
+      "speed": 5.4,
+      "tags": "transformers,safetensors,gemma3,image-text-to-text,conversational,arxiv:1905.07830,arxiv:1905.10044,arxiv:1911.11641,arxiv:1904.09728,arxiv:1705.03551,arxiv:1911.01547,arxiv:1907.10641,arxiv:1903.00161,arxiv:2009.03300,arxiv:2304.06364,arxiv:2103.03874,arxiv:2110.14168,arxiv:2311.12022,arxiv:2108.07732,arxiv:2107.03374,arxiv:2210.03057,arxiv:2106.03193,arxiv:1910.11856,arxiv:2502.12404,arxiv:2502.21228,arxiv:2404.16816,arxiv:2104.12756,arxiv:2311.16502,arxiv:2203.10244,arxiv:2404.12390,arxiv:1810.12440,arxiv:1908.02660,arxiv:2312.11805,base_model:google/gemma-3-27b-pt,base_model:finetune:google/gemma-3-27b-pt,license:gemma,eval-results,text-generation-inference,endpoints_compatible,region:us",
+      "provider": "google"
+    },
+    "kimi-k2": {
+      "architecture": "kimi_k2",
+      "context_window": 131072,
+      "cost": 4.5,
+      "created_at": "2025-07-11T00:55:12+00:00",
+      "downloads": 526388,
+      "gated": false,
+      "license": "other",
+      "likes": 2366,
+      "local": true,
+      "params_active": 23995419687,
+      "params_total": 1026470731056,
+      "pipeline_tag": "text-generation",
+      "quality": 10,
+      "speed": 5.5,
+      "tags": "transformers,safetensors,kimi_k2,text-generation,conversational,custom_code,doi:10.57967/hf/5976,license:other,eval-results,endpoints_compatible,fp8,region:us",
+      "provider": "moonshot"
+    },
+    "llama-3.1-70b": {
+      "architecture": "llama",
+      "cost": 5.6,
+      "created_at": "2024-07-16T16:07:46+00:00",
+      "downloads": 672351,
+      "gated": true,
+      "license": "llama3.1",
+      "likes": 927,
+      "local": true,
+      "params_active": 70553706496,
+      "params_total": 70553706496,
+      "pipeline_tag": "text-generation",
+      "quality": 7.7,
+      "speed": 4.4,
+      "tags": "transformers,safetensors,llama,text-generation,facebook,meta,pytorch,llama-3,conversational,en,de,fr,it,pt,hi,es,th,arxiv:2204.05149,base_model:meta-llama/Llama-3.1-70B,base_model:finetune:meta-llama/Llama-3.1-70B,license:llama3.1,eval-results,text-generation-inference,endpoints_compatible,region:us",
+      "provider": "meta"
+    },
+    "llama-3.1-8b": {
+      "architecture": "llama",
+      "cost": 3.3,
+      "created_at": "2024-07-18T08:56:00+00:00",
+      "downloads": 10054524,
+      "gated": true,
+      "license": "llama3.1",
+      "likes": 6141,
+      "local": true,
+      "params_active": 8030261248,
+      "params_total": 8030261248,
+      "pipeline_tag": "text-generation",
+      "quality": 5.6,
+      "speed": 6.7,
+      "tags": "transformers,safetensors,llama,text-generation,facebook,meta,pytorch,llama-3,conversational,en,de,fr,it,pt,hi,es,th,arxiv:2204.05149,base_model:meta-llama/Llama-3.1-8B,base_model:finetune:meta-llama/Llama-3.1-8B,license:llama3.1,eval-results,text-generation-inference,endpoints_compatible,region:us",
+      "provider": "meta"
+    },
+    "mistral-7b": {
+      "architecture": "mistral",
+      "context_window": 32768,
+      "cost": 3.2,
+      "created_at": "2024-05-22T09:57:04+00:00",
+      "downloads": 2855188,
+      "gated": false,
+      "license": "apache-2.0",
+      "likes": 2653,
+      "local": true,
+      "params_active": 7248023552,
+      "params_total": 7248023552,
+      "quality": 5.5,
+      "speed": 6.8,
+      "tags": "vllm,safetensors,mistral,mistral-common,base_model:mistralai/Mistral-7B-v0.3,base_model:finetune:mistralai/Mistral-7B-v0.3,license:apache-2.0,region:us",
+      "provider": "mistral"
+    },
+    "mixtral-8x7b": {
+      "architecture": "mixtral",
+      "context_window": 32768,
+      "cost": 3.7,
+      "created_at": "2023-12-10T18:47:12+00:00",
+      "downloads": 544848,
+      "gated": false,
+      "license": "apache-2.0",
+      "likes": 4699,
+      "local": true,
+      "params_active": 11675698176,
+      "params_total": 46702792704,
+      "quality": 6.9,
+      "speed": 6.3,
+      "tags": "vllm,safetensors,mixtral,fr,it,de,es,en,base_model:mistralai/Mixtral-8x7B-v0.1,base_model:finetune:mistralai/Mixtral-8x7B-v0.1,license:apache-2.0,eval-results,region:us",
+      "provider": "mistral"
+    },
+    "phi-3.5-mini": {
+      "architecture": "phi3",
+      "context_window": 131072,
+      "cost": 2.5,
+      "created_at": "2024-08-16T20:48:26+00:00",
+      "downloads": 1186731,
+      "gated": false,
+      "license": "mit",
+      "likes": 992,
+      "local": true,
+      "params_active": 3821079552,
+      "params_total": 3821079552,
+      "pipeline_tag": "text-generation",
+      "quality": 4.8,
+      "speed": 7.5,
+      "tags": "transformers,safetensors,phi3,text-generation,nlp,code,conversational,custom_code,multilingual,arxiv:2404.14219,arxiv:2407.13833,arxiv:2403.06412,license:mit,eval-results,text-generation-inference,endpoints_compatible,region:us",
+      "provider": "microsoft"
+    },
+    "qwen2.5-72b": {
+      "architecture": "qwen2",
+      "context_window": 32768,
+      "cost": 5.7,
+      "created_at": "2024-09-16T11:56:31+00:00",
+      "downloads": 691815,
+      "gated": false,
+      "license": "other",
+      "likes": 958,
+      "local": true,
+      "params_active": 72706203648,
+      "params_total": 72706203648,
+      "pipeline_tag": "text-generation",
+      "quality": 7.7,
+      "speed": 4.3,
+      "tags": "transformers,safetensors,qwen2,text-generation,chat,conversational,en,arxiv:2309.00071,arxiv:2407.10671,base_model:Qwen/Qwen2.5-72B,base_model:finetune:Qwen/Qwen2.5-72B,license:other,text-generation-inference,endpoints_compatible,deploy:azure,region:us",
+      "provider": "qwen"
+    },
+    "qwen2.5-7b": {
+      "architecture": "qwen2",
+      "context_window": 32768,
+      "cost": 3.2,
+      "created_at": "2024-09-16T11:55:40+00:00",
+      "downloads": 12936510,
+      "gated": false,
+      "license": "apache-2.0",
+      "likes": 1381,
+      "local": true,
+      "params_active": 7615616512,
+      "params_total": 7615616512,
+      "pipeline_tag": "text-generation",
+      "quality": 5.5,
+      "speed": 6.8,
+      "tags": "transformers,safetensors,qwen2,text-generation,chat,conversational,en,arxiv:2309.00071,arxiv:2407.10671,base_model:Qwen/Qwen2.5-7B,base_model:finetune:Qwen/Qwen2.5-7B,license:apache-2.0,eval-results,text-generation-inference,endpoints_compatible,deploy:azure,region:us",
+      "provider": "qwen"
     }
   },
   "cases": [
@@ -1097,6 +1288,1760 @@
           "speed"
         ],
         "missing_attributes": []
+      }
+    },
+    {
+      "query": "local",
+      "aliases": {},
+      "model": "deepseek-v3",
+      "expected": {
+        "model_id": "deepseek-v3",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "local"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "local",
+      "aliases": {},
+      "model": "gemma-2-9b",
+      "expected": {
+        "model_id": "gemma-2-9b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "local"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "local",
+      "aliases": {},
+      "model": "gemma-3-27b",
+      "expected": {
+        "model_id": "gemma-3-27b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "local"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "local",
+      "aliases": {},
+      "model": "kimi-k2",
+      "expected": {
+        "model_id": "kimi-k2",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "local"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "local",
+      "aliases": {},
+      "model": "llama-3.1-70b",
+      "expected": {
+        "model_id": "llama-3.1-70b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "local"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "local",
+      "aliases": {},
+      "model": "llama-3.1-8b",
+      "expected": {
+        "model_id": "llama-3.1-8b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "local"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "local",
+      "aliases": {},
+      "model": "mistral-7b",
+      "expected": {
+        "model_id": "mistral-7b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "local"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "local",
+      "aliases": {},
+      "model": "mixtral-8x7b",
+      "expected": {
+        "model_id": "mixtral-8x7b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "local"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "local",
+      "aliases": {},
+      "model": "phi-3.5-mini",
+      "expected": {
+        "model_id": "phi-3.5-mini",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "local"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "local",
+      "aliases": {},
+      "model": "qwen2.5-72b",
+      "expected": {
+        "model_id": "qwen2.5-72b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "local"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "local",
+      "aliases": {},
+      "model": "qwen2.5-7b",
+      "expected": {
+        "model_id": "qwen2.5-7b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "local"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "context_window >= 100000",
+      "aliases": {},
+      "model": "deepseek-v3",
+      "expected": {
+        "model_id": "deepseek-v3",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "context_window"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "context_window >= 100000",
+      "aliases": {},
+      "model": "gemma-2-9b",
+      "expected": {
+        "model_id": "gemma-2-9b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "context_window"
+        ]
+      }
+    },
+    {
+      "query": "context_window >= 100000",
+      "aliases": {},
+      "model": "gemma-3-27b",
+      "expected": {
+        "model_id": "gemma-3-27b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "context_window"
+        ]
+      }
+    },
+    {
+      "query": "context_window >= 100000",
+      "aliases": {},
+      "model": "kimi-k2",
+      "expected": {
+        "model_id": "kimi-k2",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "context_window"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "context_window >= 100000",
+      "aliases": {},
+      "model": "llama-3.1-70b",
+      "expected": {
+        "model_id": "llama-3.1-70b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "context_window"
+        ]
+      }
+    },
+    {
+      "query": "context_window >= 100000",
+      "aliases": {},
+      "model": "llama-3.1-8b",
+      "expected": {
+        "model_id": "llama-3.1-8b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "context_window"
+        ]
+      }
+    },
+    {
+      "query": "context_window >= 100000",
+      "aliases": {},
+      "model": "mistral-7b",
+      "expected": {
+        "model_id": "mistral-7b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "context_window"
+        ]
+      }
+    },
+    {
+      "query": "context_window >= 100000",
+      "aliases": {},
+      "model": "mixtral-8x7b",
+      "expected": {
+        "model_id": "mixtral-8x7b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "context_window"
+        ]
+      }
+    },
+    {
+      "query": "context_window >= 100000",
+      "aliases": {},
+      "model": "phi-3.5-mini",
+      "expected": {
+        "model_id": "phi-3.5-mini",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "context_window"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "context_window >= 100000",
+      "aliases": {},
+      "model": "qwen2.5-72b",
+      "expected": {
+        "model_id": "qwen2.5-72b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "context_window"
+        ]
+      }
+    },
+    {
+      "query": "context_window >= 100000",
+      "aliases": {},
+      "model": "qwen2.5-7b",
+      "expected": {
+        "model_id": "qwen2.5-7b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "context_window"
+        ]
+      }
+    },
+    {
+      "query": "context_window >= 32000, cost <= 4",
+      "aliases": {},
+      "model": "deepseek-v3",
+      "expected": {
+        "model_id": "deepseek-v3",
+        "matches": true,
+        "score": 2,
+        "max_score": 3,
+        "normalized_score": 0.6666666666666666,
+        "exact_match": false,
+        "matched_attributes": [
+          "context_window"
+        ],
+        "missing_attributes": [
+          "cost"
+        ]
+      }
+    },
+    {
+      "query": "context_window >= 32000, cost <= 4",
+      "aliases": {},
+      "model": "gemma-2-9b",
+      "expected": {
+        "model_id": "gemma-2-9b",
+        "matches": true,
+        "score": 1,
+        "max_score": 3,
+        "normalized_score": 0.3333333333333333,
+        "exact_match": false,
+        "matched_attributes": [
+          "cost"
+        ],
+        "missing_attributes": [
+          "context_window"
+        ]
+      }
+    },
+    {
+      "query": "context_window >= 32000, cost <= 4",
+      "aliases": {},
+      "model": "gemma-3-27b",
+      "expected": {
+        "model_id": "gemma-3-27b",
+        "matches": false,
+        "score": 0,
+        "max_score": 3,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "context_window",
+          "cost"
+        ]
+      }
+    },
+    {
+      "query": "context_window >= 32000, cost <= 4",
+      "aliases": {},
+      "model": "kimi-k2",
+      "expected": {
+        "model_id": "kimi-k2",
+        "matches": true,
+        "score": 2,
+        "max_score": 3,
+        "normalized_score": 0.6666666666666666,
+        "exact_match": false,
+        "matched_attributes": [
+          "context_window"
+        ],
+        "missing_attributes": [
+          "cost"
+        ]
+      }
+    },
+    {
+      "query": "context_window >= 32000, cost <= 4",
+      "aliases": {},
+      "model": "llama-3.1-70b",
+      "expected": {
+        "model_id": "llama-3.1-70b",
+        "matches": false,
+        "score": 0,
+        "max_score": 3,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "context_window",
+          "cost"
+        ]
+      }
+    },
+    {
+      "query": "context_window >= 32000, cost <= 4",
+      "aliases": {},
+      "model": "llama-3.1-8b",
+      "expected": {
+        "model_id": "llama-3.1-8b",
+        "matches": true,
+        "score": 1,
+        "max_score": 3,
+        "normalized_score": 0.3333333333333333,
+        "exact_match": false,
+        "matched_attributes": [
+          "cost"
+        ],
+        "missing_attributes": [
+          "context_window"
+        ]
+      }
+    },
+    {
+      "query": "context_window >= 32000, cost <= 4",
+      "aliases": {},
+      "model": "mistral-7b",
+      "expected": {
+        "model_id": "mistral-7b",
+        "matches": true,
+        "score": 3,
+        "max_score": 3,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "context_window",
+          "cost"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "context_window >= 32000, cost <= 4",
+      "aliases": {},
+      "model": "mixtral-8x7b",
+      "expected": {
+        "model_id": "mixtral-8x7b",
+        "matches": true,
+        "score": 3,
+        "max_score": 3,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "context_window",
+          "cost"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "context_window >= 32000, cost <= 4",
+      "aliases": {},
+      "model": "phi-3.5-mini",
+      "expected": {
+        "model_id": "phi-3.5-mini",
+        "matches": true,
+        "score": 3,
+        "max_score": 3,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "context_window",
+          "cost"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "context_window >= 32000, cost <= 4",
+      "aliases": {},
+      "model": "qwen2.5-72b",
+      "expected": {
+        "model_id": "qwen2.5-72b",
+        "matches": true,
+        "score": 2,
+        "max_score": 3,
+        "normalized_score": 0.6666666666666666,
+        "exact_match": false,
+        "matched_attributes": [
+          "context_window"
+        ],
+        "missing_attributes": [
+          "cost"
+        ]
+      }
+    },
+    {
+      "query": "context_window >= 32000, cost <= 4",
+      "aliases": {},
+      "model": "qwen2.5-7b",
+      "expected": {
+        "model_id": "qwen2.5-7b",
+        "matches": true,
+        "score": 3,
+        "max_score": 3,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "context_window",
+          "cost"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "quality >= 8",
+      "aliases": {},
+      "model": "deepseek-v3",
+      "expected": {
+        "model_id": "deepseek-v3",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "quality"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "quality >= 8",
+      "aliases": {},
+      "model": "gemma-2-9b",
+      "expected": {
+        "model_id": "gemma-2-9b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "quality"
+        ]
+      }
+    },
+    {
+      "query": "quality >= 8",
+      "aliases": {},
+      "model": "gemma-3-27b",
+      "expected": {
+        "model_id": "gemma-3-27b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "quality"
+        ]
+      }
+    },
+    {
+      "query": "quality >= 8",
+      "aliases": {},
+      "model": "kimi-k2",
+      "expected": {
+        "model_id": "kimi-k2",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "quality"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "quality >= 8",
+      "aliases": {},
+      "model": "llama-3.1-70b",
+      "expected": {
+        "model_id": "llama-3.1-70b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "quality"
+        ]
+      }
+    },
+    {
+      "query": "quality >= 8",
+      "aliases": {},
+      "model": "llama-3.1-8b",
+      "expected": {
+        "model_id": "llama-3.1-8b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "quality"
+        ]
+      }
+    },
+    {
+      "query": "quality >= 8",
+      "aliases": {},
+      "model": "mistral-7b",
+      "expected": {
+        "model_id": "mistral-7b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "quality"
+        ]
+      }
+    },
+    {
+      "query": "quality >= 8",
+      "aliases": {},
+      "model": "mixtral-8x7b",
+      "expected": {
+        "model_id": "mixtral-8x7b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "quality"
+        ]
+      }
+    },
+    {
+      "query": "quality >= 8",
+      "aliases": {},
+      "model": "phi-3.5-mini",
+      "expected": {
+        "model_id": "phi-3.5-mini",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "quality"
+        ]
+      }
+    },
+    {
+      "query": "quality >= 8",
+      "aliases": {},
+      "model": "qwen2.5-72b",
+      "expected": {
+        "model_id": "qwen2.5-72b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "quality"
+        ]
+      }
+    },
+    {
+      "query": "quality >= 8",
+      "aliases": {},
+      "model": "qwen2.5-7b",
+      "expected": {
+        "model_id": "qwen2.5-7b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "quality"
+        ]
+      }
+    },
+    {
+      "query": "params_active < 20000000000",
+      "aliases": {},
+      "model": "deepseek-v3",
+      "expected": {
+        "model_id": "deepseek-v3",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "params_active"
+        ]
+      }
+    },
+    {
+      "query": "params_active < 20000000000",
+      "aliases": {},
+      "model": "gemma-2-9b",
+      "expected": {
+        "model_id": "gemma-2-9b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "params_active"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "params_active < 20000000000",
+      "aliases": {},
+      "model": "gemma-3-27b",
+      "expected": {
+        "model_id": "gemma-3-27b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "params_active"
+        ]
+      }
+    },
+    {
+      "query": "params_active < 20000000000",
+      "aliases": {},
+      "model": "kimi-k2",
+      "expected": {
+        "model_id": "kimi-k2",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "params_active"
+        ]
+      }
+    },
+    {
+      "query": "params_active < 20000000000",
+      "aliases": {},
+      "model": "llama-3.1-70b",
+      "expected": {
+        "model_id": "llama-3.1-70b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "params_active"
+        ]
+      }
+    },
+    {
+      "query": "params_active < 20000000000",
+      "aliases": {},
+      "model": "llama-3.1-8b",
+      "expected": {
+        "model_id": "llama-3.1-8b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "params_active"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "params_active < 20000000000",
+      "aliases": {},
+      "model": "mistral-7b",
+      "expected": {
+        "model_id": "mistral-7b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "params_active"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "params_active < 20000000000",
+      "aliases": {},
+      "model": "mixtral-8x7b",
+      "expected": {
+        "model_id": "mixtral-8x7b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "params_active"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "params_active < 20000000000",
+      "aliases": {},
+      "model": "phi-3.5-mini",
+      "expected": {
+        "model_id": "phi-3.5-mini",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "params_active"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "params_active < 20000000000",
+      "aliases": {},
+      "model": "qwen2.5-72b",
+      "expected": {
+        "model_id": "qwen2.5-72b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "params_active"
+        ]
+      }
+    },
+    {
+      "query": "params_active < 20000000000",
+      "aliases": {},
+      "model": "qwen2.5-7b",
+      "expected": {
+        "model_id": "qwen2.5-7b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "params_active"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "cost <= 4, speed >= 6",
+      "aliases": {},
+      "model": "deepseek-v3",
+      "expected": {
+        "model_id": "deepseek-v3",
+        "matches": false,
+        "score": 0,
+        "max_score": 3,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "cost",
+          "speed"
+        ]
+      }
+    },
+    {
+      "query": "cost <= 4, speed >= 6",
+      "aliases": {},
+      "model": "gemma-2-9b",
+      "expected": {
+        "model_id": "gemma-2-9b",
+        "matches": true,
+        "score": 3,
+        "max_score": 3,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "cost",
+          "speed"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "cost <= 4, speed >= 6",
+      "aliases": {},
+      "model": "gemma-3-27b",
+      "expected": {
+        "model_id": "gemma-3-27b",
+        "matches": false,
+        "score": 0,
+        "max_score": 3,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "cost",
+          "speed"
+        ]
+      }
+    },
+    {
+      "query": "cost <= 4, speed >= 6",
+      "aliases": {},
+      "model": "kimi-k2",
+      "expected": {
+        "model_id": "kimi-k2",
+        "matches": false,
+        "score": 0,
+        "max_score": 3,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "cost",
+          "speed"
+        ]
+      }
+    },
+    {
+      "query": "cost <= 4, speed >= 6",
+      "aliases": {},
+      "model": "llama-3.1-70b",
+      "expected": {
+        "model_id": "llama-3.1-70b",
+        "matches": false,
+        "score": 0,
+        "max_score": 3,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "cost",
+          "speed"
+        ]
+      }
+    },
+    {
+      "query": "cost <= 4, speed >= 6",
+      "aliases": {},
+      "model": "llama-3.1-8b",
+      "expected": {
+        "model_id": "llama-3.1-8b",
+        "matches": true,
+        "score": 3,
+        "max_score": 3,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "cost",
+          "speed"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "cost <= 4, speed >= 6",
+      "aliases": {},
+      "model": "mistral-7b",
+      "expected": {
+        "model_id": "mistral-7b",
+        "matches": true,
+        "score": 3,
+        "max_score": 3,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "cost",
+          "speed"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "cost <= 4, speed >= 6",
+      "aliases": {},
+      "model": "mixtral-8x7b",
+      "expected": {
+        "model_id": "mixtral-8x7b",
+        "matches": true,
+        "score": 3,
+        "max_score": 3,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "cost",
+          "speed"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "cost <= 4, speed >= 6",
+      "aliases": {},
+      "model": "phi-3.5-mini",
+      "expected": {
+        "model_id": "phi-3.5-mini",
+        "matches": true,
+        "score": 3,
+        "max_score": 3,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "cost",
+          "speed"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "cost <= 4, speed >= 6",
+      "aliases": {},
+      "model": "qwen2.5-72b",
+      "expected": {
+        "model_id": "qwen2.5-72b",
+        "matches": false,
+        "score": 0,
+        "max_score": 3,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "cost",
+          "speed"
+        ]
+      }
+    },
+    {
+      "query": "cost <= 4, speed >= 6",
+      "aliases": {},
+      "model": "qwen2.5-7b",
+      "expected": {
+        "model_id": "qwen2.5-7b",
+        "matches": true,
+        "score": 3,
+        "max_score": 3,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "cost",
+          "speed"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "provider = qwen",
+      "aliases": {},
+      "model": "deepseek-v3",
+      "expected": {
+        "model_id": "deepseek-v3",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "provider"
+        ]
+      }
+    },
+    {
+      "query": "provider = qwen",
+      "aliases": {},
+      "model": "gemma-2-9b",
+      "expected": {
+        "model_id": "gemma-2-9b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "provider"
+        ]
+      }
+    },
+    {
+      "query": "provider = qwen",
+      "aliases": {},
+      "model": "gemma-3-27b",
+      "expected": {
+        "model_id": "gemma-3-27b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "provider"
+        ]
+      }
+    },
+    {
+      "query": "provider = qwen",
+      "aliases": {},
+      "model": "kimi-k2",
+      "expected": {
+        "model_id": "kimi-k2",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "provider"
+        ]
+      }
+    },
+    {
+      "query": "provider = qwen",
+      "aliases": {},
+      "model": "llama-3.1-70b",
+      "expected": {
+        "model_id": "llama-3.1-70b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "provider"
+        ]
+      }
+    },
+    {
+      "query": "provider = qwen",
+      "aliases": {},
+      "model": "llama-3.1-8b",
+      "expected": {
+        "model_id": "llama-3.1-8b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "provider"
+        ]
+      }
+    },
+    {
+      "query": "provider = qwen",
+      "aliases": {},
+      "model": "mistral-7b",
+      "expected": {
+        "model_id": "mistral-7b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "provider"
+        ]
+      }
+    },
+    {
+      "query": "provider = qwen",
+      "aliases": {},
+      "model": "mixtral-8x7b",
+      "expected": {
+        "model_id": "mixtral-8x7b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "provider"
+        ]
+      }
+    },
+    {
+      "query": "provider = qwen",
+      "aliases": {},
+      "model": "phi-3.5-mini",
+      "expected": {
+        "model_id": "phi-3.5-mini",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "provider"
+        ]
+      }
+    },
+    {
+      "query": "provider = qwen",
+      "aliases": {},
+      "model": "qwen2.5-72b",
+      "expected": {
+        "model_id": "qwen2.5-72b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "provider"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "provider = qwen",
+      "aliases": {},
+      "model": "qwen2.5-7b",
+      "expected": {
+        "model_id": "qwen2.5-7b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "provider"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "provider != meta",
+      "aliases": {},
+      "model": "deepseek-v3",
+      "expected": {
+        "model_id": "deepseek-v3",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "provider"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "provider != meta",
+      "aliases": {},
+      "model": "gemma-2-9b",
+      "expected": {
+        "model_id": "gemma-2-9b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "provider"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "provider != meta",
+      "aliases": {},
+      "model": "gemma-3-27b",
+      "expected": {
+        "model_id": "gemma-3-27b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "provider"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "provider != meta",
+      "aliases": {},
+      "model": "kimi-k2",
+      "expected": {
+        "model_id": "kimi-k2",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "provider"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "provider != meta",
+      "aliases": {},
+      "model": "llama-3.1-70b",
+      "expected": {
+        "model_id": "llama-3.1-70b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "provider"
+        ]
+      }
+    },
+    {
+      "query": "provider != meta",
+      "aliases": {},
+      "model": "llama-3.1-8b",
+      "expected": {
+        "model_id": "llama-3.1-8b",
+        "matches": false,
+        "score": 0,
+        "max_score": 1,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "provider"
+        ]
+      }
+    },
+    {
+      "query": "provider != meta",
+      "aliases": {},
+      "model": "mistral-7b",
+      "expected": {
+        "model_id": "mistral-7b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "provider"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "provider != meta",
+      "aliases": {},
+      "model": "mixtral-8x7b",
+      "expected": {
+        "model_id": "mixtral-8x7b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "provider"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "provider != meta",
+      "aliases": {},
+      "model": "phi-3.5-mini",
+      "expected": {
+        "model_id": "phi-3.5-mini",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "provider"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "provider != meta",
+      "aliases": {},
+      "model": "qwen2.5-72b",
+      "expected": {
+        "model_id": "qwen2.5-72b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "provider"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "provider != meta",
+      "aliases": {},
+      "model": "qwen2.5-7b",
+      "expected": {
+        "model_id": "qwen2.5-7b",
+        "matches": true,
+        "score": 1,
+        "max_score": 1,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "provider"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "cheap, fast",
+      "aliases": {
+        "cheap": "cost <= 3",
+        "fast": "speed >= 7"
+      },
+      "model": "deepseek-v3",
+      "expected": {
+        "model_id": "deepseek-v3",
+        "matches": false,
+        "score": 0,
+        "max_score": 3,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "cost",
+          "speed"
+        ]
+      }
+    },
+    {
+      "query": "cheap, fast",
+      "aliases": {
+        "cheap": "cost <= 3",
+        "fast": "speed >= 7"
+      },
+      "model": "gemma-2-9b",
+      "expected": {
+        "model_id": "gemma-2-9b",
+        "matches": false,
+        "score": 0,
+        "max_score": 3,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "cost",
+          "speed"
+        ]
+      }
+    },
+    {
+      "query": "cheap, fast",
+      "aliases": {
+        "cheap": "cost <= 3",
+        "fast": "speed >= 7"
+      },
+      "model": "gemma-3-27b",
+      "expected": {
+        "model_id": "gemma-3-27b",
+        "matches": false,
+        "score": 0,
+        "max_score": 3,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "cost",
+          "speed"
+        ]
+      }
+    },
+    {
+      "query": "cheap, fast",
+      "aliases": {
+        "cheap": "cost <= 3",
+        "fast": "speed >= 7"
+      },
+      "model": "kimi-k2",
+      "expected": {
+        "model_id": "kimi-k2",
+        "matches": false,
+        "score": 0,
+        "max_score": 3,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "cost",
+          "speed"
+        ]
+      }
+    },
+    {
+      "query": "cheap, fast",
+      "aliases": {
+        "cheap": "cost <= 3",
+        "fast": "speed >= 7"
+      },
+      "model": "llama-3.1-70b",
+      "expected": {
+        "model_id": "llama-3.1-70b",
+        "matches": false,
+        "score": 0,
+        "max_score": 3,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "cost",
+          "speed"
+        ]
+      }
+    },
+    {
+      "query": "cheap, fast",
+      "aliases": {
+        "cheap": "cost <= 3",
+        "fast": "speed >= 7"
+      },
+      "model": "llama-3.1-8b",
+      "expected": {
+        "model_id": "llama-3.1-8b",
+        "matches": false,
+        "score": 0,
+        "max_score": 3,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "cost",
+          "speed"
+        ]
+      }
+    },
+    {
+      "query": "cheap, fast",
+      "aliases": {
+        "cheap": "cost <= 3",
+        "fast": "speed >= 7"
+      },
+      "model": "mistral-7b",
+      "expected": {
+        "model_id": "mistral-7b",
+        "matches": false,
+        "score": 0,
+        "max_score": 3,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "cost",
+          "speed"
+        ]
+      }
+    },
+    {
+      "query": "cheap, fast",
+      "aliases": {
+        "cheap": "cost <= 3",
+        "fast": "speed >= 7"
+      },
+      "model": "mixtral-8x7b",
+      "expected": {
+        "model_id": "mixtral-8x7b",
+        "matches": false,
+        "score": 0,
+        "max_score": 3,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "cost",
+          "speed"
+        ]
+      }
+    },
+    {
+      "query": "cheap, fast",
+      "aliases": {
+        "cheap": "cost <= 3",
+        "fast": "speed >= 7"
+      },
+      "model": "phi-3.5-mini",
+      "expected": {
+        "model_id": "phi-3.5-mini",
+        "matches": true,
+        "score": 3,
+        "max_score": 3,
+        "normalized_score": 1.0,
+        "exact_match": true,
+        "matched_attributes": [
+          "cost",
+          "speed"
+        ],
+        "missing_attributes": []
+      }
+    },
+    {
+      "query": "cheap, fast",
+      "aliases": {
+        "cheap": "cost <= 3",
+        "fast": "speed >= 7"
+      },
+      "model": "qwen2.5-72b",
+      "expected": {
+        "model_id": "qwen2.5-72b",
+        "matches": false,
+        "score": 0,
+        "max_score": 3,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "cost",
+          "speed"
+        ]
+      }
+    },
+    {
+      "query": "cheap, fast",
+      "aliases": {
+        "cheap": "cost <= 3",
+        "fast": "speed >= 7"
+      },
+      "model": "qwen2.5-7b",
+      "expected": {
+        "model_id": "qwen2.5-7b",
+        "matches": false,
+        "score": 0,
+        "max_score": 3,
+        "normalized_score": 0.0,
+        "exact_match": false,
+        "matched_attributes": [],
+        "missing_attributes": [
+          "cost",
+          "speed"
+        ]
       }
     }
   ]

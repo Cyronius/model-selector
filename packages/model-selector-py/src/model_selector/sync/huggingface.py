@@ -72,6 +72,17 @@ def fetch_hf_metadata(repo_id: str, token: str | None = None) -> dict[str, Any]:
 
     created_at = getattr(info, "created_at", None)
 
+    # ``card_data`` is a ModelCardData, not a plain mapping; ``dict(...)`` on it
+    # iterates it as a sequence on recent huggingface_hub and raises KeyError. Use
+    # its ``to_dict()`` when present and fall back to a plain dict otherwise.
+    card_data = getattr(info, "card_data", None)
+    if card_data is None:
+        card_data_dict: dict[str, Any] = {}
+    elif hasattr(card_data, "to_dict"):
+        card_data_dict = dict(card_data.to_dict())
+    else:
+        card_data_dict = dict(card_data)
+
     return {
         "id": repo_id,
         "downloads": getattr(info, "downloads", None),
@@ -80,7 +91,7 @@ def fetch_hf_metadata(repo_id: str, token: str | None = None) -> dict[str, Any]:
         "gated": getattr(info, "gated", None),
         "tags": list(getattr(info, "tags", None) or []),
         "pipeline_tag": getattr(info, "pipeline_tag", None),
-        "card_data": dict(getattr(info, "card_data", None) or {}),
+        "card_data": card_data_dict,
         "config": config,
         "safetensors": safetensors_dict,
     }
@@ -93,15 +104,25 @@ def _safetensors_total(raw: Mapping[str, Any]) -> int | None:
 
 
 def _approx_active_params(total: int, config: Mapping[str, Any]) -> int:
-    """Approximate active params for MoE models; equal to total for dense models."""
+    """Approximate active params for MoE models; equal to total for dense models.
+
+    Recognizes both the Mixtral-style ``num_local_experts`` and the DeepSeek/Kimi
+    -style ``n_routed_experts`` naming. Always-active shared experts
+    (``n_shared_experts``) count toward the active fraction when present.
+    """
     num_experts = config.get("num_local_experts")
+    if not isinstance(num_experts, (int, float)) or not num_experts:
+        num_experts = config.get("n_routed_experts")
     experts_per_tok = config.get("num_experts_per_tok")
     if (
         isinstance(num_experts, (int, float))
         and num_experts
         and isinstance(experts_per_tok, (int, float))
     ):
-        return int(total * (experts_per_tok / num_experts))
+        shared = config.get("n_shared_experts")
+        shared = shared if isinstance(shared, (int, float)) and shared > 0 else 0
+        active_fraction = (experts_per_tok + shared) / (num_experts + shared)
+        return int(total * active_fraction)
     return total
 
 

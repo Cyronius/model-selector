@@ -108,7 +108,9 @@ Python implementation via `shared/corpus/generate.py`.
 
 `map_hf_to_facts` (pure) maps raw HF metadata to factual attributes:
 `params_total`, `params_active` (= total for dense; MoE-adjusted via
-`num_local_experts` / `num_experts_per_tok`), `architecture`, `context_window`,
+`num_experts_per_tok` over the expert count — `num_local_experts` (Mixtral-style)
+or `n_routed_experts` (DeepSeek/Kimi-style), with `n_shared_experts` counted as
+always-active when present), `architecture`, `context_window`,
 `license`, `gated`, `pipeline_tag`, `tags`, `downloads`, `likes`, `created_at`,
 `local=true`. Provenance is `huggingface`.
 
